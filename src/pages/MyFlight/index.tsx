@@ -8,7 +8,7 @@ import {StatusFlight} from './components/StatusFlight'
 import { FlightProblems } from '../../components/FlightProblems'
 import './style.css'
 
-export function PageFlightStatus() {
+export function MyFlight() {
     const [actualStage,setActualStage]  = useState(0)
     const [isAlone,setIsAlone] = useState(true)
     const [listStages,setListStage] = useState([<StatusFlight />,<IncludePassager />,<FlightConnection/>,<FlightProblems/>])
