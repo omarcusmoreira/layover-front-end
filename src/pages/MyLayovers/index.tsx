@@ -1,34 +1,40 @@
 import React, { useState } from "react";
-import {
-  Tabs,
-  Tab,
-  Grid,
-  Card,
-  CardContent,
-  Typography,
-} from "@mui/material";
+import { Tabs, Tab, Grid, Card, CardContent, Typography } from "@mui/material";
+import { Layovers } from "./components/Layovers";
 
-const Layovers = () => {
-  return (
-    <Grid container spacing={3}>
-      {Array.from({ length: 6 }, (_, i) => (
-        <Grid item xs={4}>
-          <Card style={{ height: "100%", maxWidth:"360px"}}>
-            <CardContent>
-              <Typography variant="h5">Layover: 0100123452023551</Typography>
-              <Typography>Status: Pronto</Typography>
-              <Typography>Voucher Alimentação: free</Typography>
-              <Typography>Voucher Transporte: free</Typography>
-              <Typography>Checkin: True</Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-      ))}
-    </Grid>
-  );
-};
 
-const LocalizarVoo = () => {
+const layoverMocks = [
+  {
+    layover_id: "1001232444090-90",
+    status: "finalizado",
+    food_voucher: "usado",
+    transport_voucher: "usado",
+    checkin_status: "completado",
+  },
+  {
+    layover_id: "1001232444090-90",
+    status: "finalizado",
+    food_voucher: "usado",
+    transport_voucher: "usado",
+    checkin_status: "completado",
+  },
+  {
+    layover_id: "1001232444090-90",
+    status: "finalizado",
+    food_voucher: "usado",
+    transport_voucher: "usado",
+    checkin_status: "completado",
+  },
+  {
+    layover_id: "1001232444090-90",
+    status: "finalizado",
+    food_voucher: "usado",
+    transport_voucher: "usado",
+    checkin_status: "completado",
+  },
+];
+
+const SearchFlight = () => {
   return <h1>Localizar Voo Component</h1>;
 };
 
@@ -48,8 +54,12 @@ export const MyLayovers = () => {
         <Tab value="MeusLayovers" label="Meus Layovers" />
         <Tab value="LocalizarVoo" label="Localizar Voo" />
       </Tabs>
-      <div style={{ marginTop: "20px", backgroundColor:'rgba(76,89,121,.7)'}}>
-        {activeTab === "MeusLayovers" ? <Layovers /> : <LocalizarVoo />}
+      <div style={{ marginTop: "20px", backgroundColor: "rgba(76,89,121,.7)" }}>
+        {activeTab === "MeusLayovers" ? (
+          <Layovers layovers={layoverMocks}/>
+        ) : (
+          <SearchFlight />
+        )}
       </div>
     </div>
   );
