@@ -53,7 +53,7 @@ export function Header({ handleSearch }: HeaderProps) {
   return (
     <>
       <AppBar sx={{boxShadow:'2px 2px 5px rgba(0, 0, 0, 0.15)', borderBottom: '1px solid rgba(200, 200, 200)'}}>
-        <Toolbar sx={{background: '#eee', height: '95px', padding: 0, margin: 0}}>
+        <Toolbar sx={{background: '#FEFEFE', height: '95px', padding: 0, margin: 0}}>
           <HeaderContainer>
             {handleSearch && (
               <SearchContainer>
