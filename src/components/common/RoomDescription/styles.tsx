@@ -17,7 +17,7 @@ export const RoomInfosItemContainer = styled.li`
 
  export const RoomInfosItem  = styled.p`
     color: #444;
-    font-size: 18px;
+    font-size: 1rem;
     span{
         font-weight:800;
     }

@@ -1,4 +1,11 @@
 import { Card, CardContent, Grid, Typography } from "@mui/material";
+import {
+  MyLayoversCard,
+  LayoversLabel,
+  LayoversTicket,
+  LayoversTicketSubitem,
+} from "./styles";
+
 
 type Tlayover = {
   layover_id: string;
@@ -14,26 +21,26 @@ interface LayoversProps {
 
 export const Layovers = ({ layovers }: LayoversProps) => {
   return (
-    <Grid container spacing={3}>
+    <>
       {layovers.map((layover) => (
-        <Grid item xs={4}>
-          <Card style={{ height: "100%", maxWidth: "360px" }}>
-            <CardContent>
-              <Typography variant="h5">
-                Layover: {layover.layover_id}
-              </Typography>
-              <Typography>Status: {layover.status}</Typography>
-              <Typography>
-                Voucher Alimentação: {layover.food_voucher}
-              </Typography>
-              <Typography>
-                Voucher Transporte: {layover.transport_voucher}
-              </Typography>
-              <Typography>Checkin: {layover.checkin_status}</Typography>
-            </CardContent>
-          </Card>
-        </Grid>
+
+        <MyLayoversCard>
+          <div>
+            <LayoversLabel>Layover</LayoversLabel>
+            <LayoversTicket>
+              {layover.layover_id}
+            </LayoversTicket>
+          </div>
+          <LayoversTicketSubitem><span>Status:</span>{layover.status}</LayoversTicketSubitem>
+          <LayoversTicketSubitem>
+          <span>Voucher Alimentação:</span>{layover.food_voucher}
+          </LayoversTicketSubitem>
+          <LayoversTicketSubitem>
+          <span>Voucher Transporte:</span>{layover.transport_voucher}
+          </LayoversTicketSubitem>
+          <LayoversTicketSubitem><span>Checkin:</span>{layover.checkin_status}</LayoversTicketSubitem>
+        </MyLayoversCard>
       ))}
-    </Grid>
+    </>
   );
 };
