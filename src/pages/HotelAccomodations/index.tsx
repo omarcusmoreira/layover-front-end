@@ -1,316 +1,281 @@
-import { useNavigate } from "react-router-dom";
-import {
-  Button,
-  Checkbox,
-  MenuItem,
-  Modal,
-  Select,
-  TextField,
-} from "@mui/material";
+import { useNavigate } from 'react-router-dom'
+import { Button, Checkbox, MenuItem, Modal, Select, TextField } from "@mui/material";
 import { useState } from "react";
 import { Dropzone } from "../../components/DropZone";
 import { LanguageDescription } from "../../components/LanguageDescription/LanguageDescription";
-import { RoomDescription } from "../../components/RoomDescription";
+import { RoomDescription } from "../../components/Common/RoomDescription";
+import { InputText } from "../../components/Common/inputText"
+import { InputSelect } from "../../components/Common/inputSelect"
+
+import {
+    HotelAccomodationsPage,
+    HotelAccomodationsContent,
+    HotelAccomodationsContentRow,
+    HotelAccomodationsRowTitle,
+    HotelAccomodationsRowSubTitle,
+    HotelAccomodationsRowInputWrap,
+    HotelAccomodationsRowCheckboxWrap,
+    ListRoomDescription,
+    AccommodationsHotelsModal,
+    AccommodationsHotelsModalTitle,
+    AccommodationsHotelsModalForm,
+    AccommodationsHotelsModalFormRow,
+    AccommodationsHotelsModalFormButtonsWrap,
+    ActionsButtonsWrap,
+} from "./styles";
+
 
 export function HotelsAccommodations() {
-  const navigate = useNavigate();
 
-  const [hasPark, setHasPark] = useState(false);
-  const [hasBreakfast, setHasBreakfast] = useState(false);
+    const navigate = useNavigate()
 
-  const [listLanguages, setListLanguages] = useState([
-    { language: "en", level: "Begginer" },
-  ]);
-  const [objLanguage, setObjLanguage] = useState({});
+    const [hasPark, setHasPark] = useState("0")
+    const [hasBreakfast, setHasBreakfast] = useState("0")
 
-  const [descriptionComm, setDescritionComm] = useState("");
+    const [listLanguages, setListLanguages] = useState([{ language: 'en', level: 'Begginer' }])
+    const [objLanguage, setObjLanguage] = useState({})
 
-  const [listAccomodations, setListAccommodations] = useState([]);
-  const [photos, setPhotos] = useState();
+    const [descriptionComm, setDescritionComm] = useState('')
 
-  const [openModal, setOpenModal] = useState(false);
-  const [typeRoom, setTypeRoom] = useState("single");
-  const [quantityRoom, setQuantityRoom] = useState(1);
-  const [priceRoom, setPriceRoom] = useState(10);
+    const [listAccomodations, setListAccommodations] = useState([])
+    const [photos, setPhotos] = useState()
 
-  const [listRoom, setListRoom] = useState([]);
+    const [openModal, setOpenModal] = useState(false)
+    const [typeRoom, setTypeRoom] = useState('single')
+    const [quantityRoom, setQuantityRoom] = useState(1)
+    const [priceRoom, setPriceRoom] = useState(10)
 
-  function handleAddLanguage() {
-    setListLanguages((olds) => [
-      ...olds,
-      { language: "en", level: "Begginer" },
-    ]);
-  }
+    const [listRoom, setListRoom] = useState([])
 
-  function changeLanguge(language: any, level: any, index: any) {
-    const newArr = listLanguages;
-    newArr[index] = { language, level };
-    setListLanguages([...newArr]);
-  }
 
-  function handleAccepted() {
-    console.log(photos);
-  }
+    function handleAddLanguage() {
+        setListLanguages(olds => [...olds, { language: 'en', level: 'Begginer' }])
+    }
 
-  function handleCloseModal() {
-    return setOpenModal(false);
-  }
+    function changeLanguge(language, level, index) {
+        const newArr = listLanguages
+        newArr[index] = { language, level }
+        setListLanguages([...newArr])
+    }
 
-  function handleRemove(index: any) {
-    const arrCopy = listLanguages;
-    arrCopy.splice(index, 1);
-    setListLanguages([...arrCopy]);
-  }
+    function handleAccepted() {
+        console.log(photos)
+    }
 
-  function handleAccommodations(value: any) {
-    // const newArr = listAccomodations;
-    // if (newArr.includes(value)) {
-    //   const pos = newArr.indexOf(value);
-    //   newArr.slice(pos, 1);
-    //   setListAccommodations([...newArr]);
-    // } else {
-    //   setListAccommodations((olds) => [...olds, value]);
-    // }
-  }
+    function handleCloseModal() { return setOpenModal(false) }
 
-  function handleAddRoom(objRoomInfos: any) {
-    // setListRoom((olds) => [...olds, objRoomInfos]);
-    // setPriceRoom(10);
-    // setQuantityRoom(1);
-    // setTypeRoom("single");
-  }
+    function handleRemove(index) {
+        const arrCopy = listLanguages
+        arrCopy.splice(index, 1)
+        setListLanguages([...arrCopy])
+    }
 
-  function handleRemoveRoom(index: any) {
-    const arrCopy = listRoom;
-    arrCopy.splice(index, 1);
-    setListRoom([...arrCopy]);
-  }
-
-  return (
-    <>
-      <div className="accommodations-hotels-container">
-        <div className="accommodations-hotels-form">
-          <form action="">
-            <div className="accommodations-hotels-form-item">
-              <h2>Estacionameto</h2>
-              <span>Vocês oferecem estacionamento para os hóspedes</span>
-              <Select
-                className="select-actions"
-                value={hasPark}
-                onChange={(e) => setHasPark(!!e.target.value)}
-              >
-                <MenuItem value={"yes"}>Sim</MenuItem>
-                <MenuItem value={"no"}>Não</MenuItem>
-              </Select>
-            </div>
-            <div className="accommodations-hotels-form-item">
-              <h2>Café da manhã</h2>
-              <span>Vocês oferecem café da manhã para os hóspedes</span>
-              <Select
-                value={hasBreakfast}
-                onChange={(e) => setHasBreakfast(!!e.target.value)}
-                className="select-actions"
-              >
-                <MenuItem value={"yes"}>Sim</MenuItem>
-                <MenuItem value={"no"}>Não</MenuItem>
-              </Select>
-            </div>
-            <div className="accommodations-hotels-form-item">
-              <h2>Idiomas falados</h2>
-              <span>Quais idiomas você ou sua equipe falam ?</span>
-              <div className="form-spec-items">
-                <div className="select-container">
-                  {listLanguages.map((value, key) => (
-                    <LanguageDescription
-                      handleChange={changeLanguge}
-                      handleRemove={handleRemove}
-                      languageSelect={value.language}
-                      levelSelect={value.level}
-                      index={key}
-                      key={key}
-                    />
-                  ))}
-                </div>
-              </div>
-              <Button
-                className="button-actions"
-                onClick={handleAddLanguage}
-                id="language-button"
-              >
-                Adicionar
-              </Button>
-            </div>
-            <div className="accommodations-hotels-form-item">
-              <h2>Comodidades</h2>
-              <span>Quais comodidades vocês oferecem ?</span>
-              <div className="checkbox-spec-item">
-                <div>
-                  <Checkbox
-                    onChange={() => {
-                      handleAccommodations("wifi");
-                    }}
-                  />{" "}
-                  <span>Wi-fi gratuito</span>
-                </div>
-                <div>
-                  <Checkbox
-                    onChange={() => {
-                      handleAccommodations("Restautrante");
-                    }}
-                  />{" "}
-                  <span>Restautrante</span>
-                </div>
-                <div>
-                  <Checkbox
-                    onChange={() => {
-                      handleAccommodations("Serviço-de-quarto");
-                    }}
-                  />{" "}
-                  <span>Serviço de quarto</span>
-                </div>
-                <div>
-                  <Checkbox
-                    onChange={() => {
-                      handleAccommodations("Quarto-para-a-família");
-                    }}
-                  />{" "}
-                  <span>Quarto para a família</span>
-                </div>
-                <div>
-                  <Checkbox
-                    onChange={() => {
-                      handleAccommodations("Recepção-24-horas");
-                    }}
-                  />{" "}
-                  <span>Recepção 24 horas</span>
-                </div>
-                <div>
-                  <Checkbox
-                    onChange={() => {
-                      handleAccommodations("Ar-condicionado");
-                    }}
-                  />{" "}
-                  <span>Ar condicionado</span>
-                </div>
-              </div>
-              <textarea
-                className="description"
-                onChange={(e) => setDescritionComm(e.target.value)}
-                placeholder="Coloque aqui alguma outra comodidade fornecida pelo hotel..."
-              />
-            </div>
-            <div className="accommodations-hotels-form-item">
-              <h2>Quartos</h2>
-              <span>Insira aqui as informações dos quartos</span>
-              <Button
-                className="button-actions"
-                onClick={() => {
-                  setOpenModal(true);
-                }}
-              >
-                Adicionar
-              </Button>
-              <div>
-                <ul className="list-room-description">
-                  {listRoom.length > 0 ? (
-                    listRoom.map((value: any, key) => (
-                      <li>
-                        <RoomDescription
-                          type={value.typeRoom}
-                          price={value.priceRoom}
-                          quantity={value.quantityRoom}
-                          index={key}
-                          handleRemove={handleRemoveRoom}
-                          key={key}
-                        />
-                      </li>
-                    ))
-                  ) : (
-                    <span>Nenhum quarto adicionado ainda</span>
-                  )}
-                </ul>
-              </div>
-            </div>
-            <div className="accommodations-hotels-form-item">
-              <h2>Fotos</h2>
-              <span>Insira aqui as informações dos quartos</span>
-              <div className="droparea">
-                <Dropzone handleAccepted={handleAccepted} photo={setPhotos} />
-              </div>
-            </div>
-          </form>
-          <div className="actions-buttons">
-            <Button
-              onClick={() => {
-                navigate("/register-hotel");
-              }}
-            >
-              Voltar
-            </Button>
-            <Button>Avançar</Button>
-          </div>
-        </div>
-      </div>
-      <Modal
-        open={openModal}
-        onClose={handleCloseModal}
-        className="accommodations-modal"
-        children={
-          <div className="accommodations-hotels-modal">
-            <h4>Informações sobre o quarto</h4>
-            <div className="accommodations-hotels-modal-form">
-              <form action="">
-                <div className="accommodations-hotels-modal-form-infos">
-                  <div className="accommodations-hotels-modal-form-infos-item">
-                    <span>Tipo</span>
-                    <Select
-                      className="modal-select"
-                      onChange={(e) => setTypeRoom(e.target.value)}
-                      value={typeRoom}
-                    >
-                      <MenuItem value="single">Single</MenuItem>
-                      <MenuItem value="double">Double</MenuItem>
-                      <MenuItem value="kids">Kids</MenuItem>
-                    </Select>
-                  </div>
-                  <div className="accommodations-hotels-modal-form-infos-item">
-                    <span>Quantidade</span>
-                    <TextField
-                      className="modal-text-field"
-                      onChange={(e) => setQuantityRoom(Number(e.target.value))}
-                      value={quantityRoom}
-                    />
-                  </div>
-                  <div className="accommodations-hotels-modal-form-infos-item">
-                    <span>Preço</span>
-                    <TextField
-                      className="modal-text-field"
-                      onChange={(e) => setPriceRoom(Number(e.target.value))}
-                      value={priceRoom}
-                    />
-                  </div>
-                </div>
-                <div className="accommodations-hotels-modal-form-buttons">
-                  <Button onClick={handleCloseModal}>Cancelar</Button>
-                  <Button
-                    onClick={() => {
-                      const objRoom = {
-                        priceRoom,
-                        typeRoom,
-                        quantityRoom,
-                      };
-                      handleCloseModal();
-                      handleAddRoom(objRoom);
-                    }}
-                  >
-                    Salvar
-                  </Button>
-                </div>
-              </form>
-            </div>
-          </div>
+    function handleAccommodations(value) {
+        const newArr = listAccomodations
+        if (newArr.includes(value)) {
+            const pos = newArr.indexOf(value)
+            newArr.slice(pos, 1)
+            setListAccommodations([...newArr])
         }
-      />
-    </>
-  );
+        else {
+            setListAccommodations(olds => [...olds, value])
+        }
+    }
+
+    function handleAddRoom(objRoomInfos) {
+        setListRoom(olds => [...olds, objRoomInfos])
+        setPriceRoom(10)
+        setQuantityRoom(1)
+        setTypeRoom('single')
+    }
+
+    function handleRemoveRoom(index) {
+        const arrCopy = listRoom
+        arrCopy.splice(index, 1)
+        setListRoom([...arrCopy])
+    }
+
+    return (
+        <>
+            <HotelAccomodationsPage>
+                <HotelAccomodationsContent action="">
+                    <HotelAccomodationsContentRow>
+                        <div>
+                            <HotelAccomodationsRowTitle>
+                                Estacionameto
+                            </HotelAccomodationsRowTitle>
+                            <HotelAccomodationsRowSubTitle>
+                                Vocês oferecem estacionamento para os hóspedes?
+                            </HotelAccomodationsRowSubTitle>
+                            <HotelAccomodationsRowInputWrap>
+                                <InputSelect callBacks={(e) => setHasPark(e)} value={hasPark}>
+                                    <MenuItem value={"0"}>Não</MenuItem>
+                                    <MenuItem value={"1"}>Sim</MenuItem>
+                                </InputSelect>
+                            </HotelAccomodationsRowInputWrap>
+                        </div>
+                    </HotelAccomodationsContentRow>
+
+                    <HotelAccomodationsContentRow>
+                        <HotelAccomodationsRowTitle>
+                            Café da manhã
+                        </HotelAccomodationsRowTitle>
+                        <HotelAccomodationsRowSubTitle>
+                            Vocês oferecem café da manhã para os hóspedes?
+                        </HotelAccomodationsRowSubTitle>
+                        <HotelAccomodationsRowInputWrap>
+                            <InputSelect callBacks={(e) => setHasBreakfast(e)} value={hasBreakfast}>
+                                <MenuItem value={"0"}>Não</MenuItem>
+                                <MenuItem value={"1"}>Sim</MenuItem>
+
+                            </InputSelect>
+                        </HotelAccomodationsRowInputWrap>
+                    </HotelAccomodationsContentRow>
+
+                    <HotelAccomodationsContentRow>
+                        <div>
+                            <h2>Idiomas falados</h2>
+                            <span>Quais idiomas você ou sua equipe falam ?</span>
+                            <div>
+                                <div>
+                                    {listLanguages.map((value, key) => (
+                                        <LanguageDescription
+                                            handleChange={changeLanguge}
+                                            handleRemove={handleRemove}
+                                            languageSelect={value.language}
+                                            levelSelect={value.level}
+                                            index={key}
+                                            key={key}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                            <Button
+                                onClick={handleAddLanguage}
+                                id='language-button'
+                            >Adicionar</Button>
+                        </div>
+                    </HotelAccomodationsContentRow>
+
+                    <HotelAccomodationsContentRow>
+                        <HotelAccomodationsRowTitle>
+                            Comodidades
+                        </HotelAccomodationsRowTitle>
+                        <HotelAccomodationsRowSubTitle>
+                            Quais comodidades vocês oferecem?
+                        </HotelAccomodationsRowSubTitle>
+                        <HotelAccomodationsRowInputWrap>
+                            <HotelAccomodationsRowCheckboxWrap>
+                                <div><Checkbox onChange={() => { handleAccommodations('wifi') }} /> <span>Wi-fi gratuito</span></div>
+                                <div><Checkbox onChange={() => { handleAccommodations('Restautrante') }} /> <span>Restautrante</span></div>
+                                <div><Checkbox onChange={() => { handleAccommodations('Serviço-de-quarto') }} /> <span>Serviço de quarto</span></div>
+                                <div><Checkbox onChange={() => { handleAccommodations('Quarto-para-a-família') }} /> <span>Quarto para a família</span></div>
+                                <div><Checkbox onChange={() => { handleAccommodations('Recepção-24-horas') }} /> <span>Recepção 24 horas</span></div>
+                                <div><Checkbox onChange={() => { handleAccommodations('Ar-condicionado') }} /> <span>Ar condicionado</span></div>
+                            </HotelAccomodationsRowCheckboxWrap>
+                            <InputText callBacks={(e) => setDescritionComm(e.target.value)} type="password" value={descriptionComm} label="Outra? Especifique abaixo" />
+
+                        </HotelAccomodationsRowInputWrap>
+
+                    </HotelAccomodationsContentRow>
+
+                    <HotelAccomodationsContentRow>
+                        <HotelAccomodationsRowTitle>
+                            Quartos
+                        </HotelAccomodationsRowTitle>
+                        <HotelAccomodationsRowSubTitle>
+                            Insira aqui as informações dos quartos
+                        </HotelAccomodationsRowSubTitle>
+                        <Button
+                            onClick={() => { setOpenModal(true) }}
+                            sx={{ color: "#fff", float:"right", marginTop:"-40px", fontSize: "19px", width: "200px", fontWeight: "300", textTransform: "capitalize", padding: "0 52px", borderRadius: "19px", backgroundColor: "#021442", height: "38px", boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)", '&:hover': {color: '#000', backgroundColor: '#fff'} }}>
+                            Adicionar
+                        </Button>
+
+                        <ListRoomDescription>
+                            {
+                                listRoom.length > 0 ?
+                                    listRoom.map((value, key) => (
+                                        <RoomDescription
+                                            type={value.typeRoom}
+                                            price={value.priceRoom}
+                                            quantity={value.quantityRoom}
+                                            index={key}
+                                            handleRemove={handleRemoveRoom}
+                                            key={key}
+                                        />
+                                    )) :
+                                    <span>Nenhum quarto adicionado ainda</span>
+                            }
+                        </ListRoomDescription>
+                    </HotelAccomodationsContentRow>
+
+
+                    <HotelAccomodationsContentRow>
+                        <div className="accommodations-hotels-form-item">
+                            <h2>Fotos</h2>
+                            <span>Insira aqui as informações dos quartos</span>
+                            <div className="droparea">
+                                <Dropzone handleAccepted={handleAccepted} photo={setPhotos} />
+                            </div>
+                        </div>
+                    </HotelAccomodationsContentRow>
+
+                    <ActionsButtonsWrap>
+                        <Button
+                            onClick={() => { navigate('/register-hotel') }}
+                            sx={{ color: "#fff", fontSize: "19px", width: "200px", fontWeight: "300", textTransform: "capitalize", padding: "0 52px", borderRadius: "19px", backgroundColor: "#021442", height: "38px", boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)", '&:hover': {color: '#000', backgroundColor: '#fff'}  }}>
+
+                        Voltar</Button>
+                        <Button
+                            sx={{ color: "#fff", fontSize: "19px", width: "200px", fontWeight: "300", textTransform: "capitalize", padding: "0 52px", borderRadius: "19px", backgroundColor: "#021442", height: "38px", boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)", '&:hover': {color: '#000', backgroundColor: '#fff'}  }}>
+                        Avançar</Button>
+                    </ActionsButtonsWrap>
+                </HotelAccomodationsContent>
+            </HotelAccomodationsPage>
+            <Modal
+                open={openModal}
+                onClose={handleCloseModal}
+                children={
+                    <AccommodationsHotelsModal>
+                        <AccommodationsHotelsModalTitle>Informações sobre o quarto</AccommodationsHotelsModalTitle>
+                            <AccommodationsHotelsModalForm action="">
+                                    <AccommodationsHotelsModalFormRow>
+                                        <InputSelect callBacks={(e) => setTypeRoom(e)} value={typeRoom}>
+                                            <MenuItem value='single'>Single</MenuItem>
+                                            <MenuItem value='double'>Double</MenuItem>
+                                            <MenuItem value='kids'>Kids</MenuItem>
+                                        </InputSelect>
+                                    </AccommodationsHotelsModalFormRow>
+                                    <AccommodationsHotelsModalFormRow>
+                                        <InputText callBacks={(e) => setQuantityRoom(e.target.value)}  value={quantityRoom} type={"number"} label="Quantidade"/>
+                                        <InputText callBacks={(e) => setPriceRoom(e.target.value)}  value={priceRoom} type={"number"} label="Preço"/>
+                                    </AccommodationsHotelsModalFormRow>
+
+                                <AccommodationsHotelsModalFormButtonsWrap>
+                                    <Button onClick={handleCloseModal}
+                                    sx={{ color: "#fff", fontSize: "19px", width: "200px", fontWeight: "300", textTransform: "capitalize", padding: "0 52px", borderRadius: "19px", backgroundColor: "#021442", height: "38px", boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)", '&:hover': {color: '#000', backgroundColor: '#fff'}  }}>
+                                        Cancelar
+                                    </Button>
+                                    <Button
+                                        onClick={() => {
+                                            const objRoom = {
+                                                priceRoom,
+                                                typeRoom,
+                                                quantityRoom
+                                            }
+                                            handleCloseModal()
+                                            handleAddRoom(objRoom)
+                                        }}
+                                        sx={{ color: "#fff", fontSize: "19px", width: "200px", fontWeight: "300", textTransform: "capitalize", padding: "0 52px", borderRadius: "19px", backgroundColor: "#021442", height: "38px", boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)", '&:hover': {color: '#000', backgroundColor: '#fff'}  }}>
+                                            Salvar
+                                        </Button>
+                                </AccommodationsHotelsModalFormButtonsWrap>
+                            </AccommodationsHotelsModalForm>
+                    </AccommodationsHotelsModal>
+                }
+            />
+        </>
+
+    )
 }
