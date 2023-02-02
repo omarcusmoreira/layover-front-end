@@ -11,15 +11,22 @@ import {
   Box,
 } from '@mui/material';
 
+import {
+  FlightWrap,
+  FlightContent,
+  FlightWrapTitle,
+  FlightWrapSubTitle,
+} from "./styles";
+
+
 export const FlightSearch = () => {
   return (
-    <>
-      <Box display="flex" flexDirection="column" alignItems="center" mt={3}>
-        <h1 style={{ textAlign: 'left' }}>Status de voo</h1>
-        <p style={{ textAlign: 'left' }}>
+    <FlightWrap>
+      <FlightContent>
+        <FlightWrapTitle style={{ textAlign: 'left' }}>Status de voo</FlightWrapTitle>
+        <FlightWrapSubTitle style={{ textAlign: 'left' }}>
           Preencha os dados abaixo para localizar o voo
-        </p>
-      </Box>
+        </FlightWrapSubTitle>
       <Box display="flex" justifyContent="center" mt={3} mb={3}>
         <FormControl style={{ width: '50%' }}>
           <InputLabel id="search-by-label">Buscar por</InputLabel>
@@ -55,7 +62,8 @@ export const FlightSearch = () => {
         <Button variant="contained">Voltar</Button>
         <Button variant="contained">Avançar</Button>
       </Box>
-    </>
+      </FlightContent>
+    </FlightWrap>
   );
 };
 

@@ -1,5 +1,17 @@
 import styled from "styled-components";
 
+export const MyLayoversCards = styled.div`
+    display:grid;
+    width:100%;
+    grid-template-columns: repeat(auto-fill, minmax(268px, 1fr));
+    grid-column-gap:2rem;
+    grid-row-gap:2rem;
+    margin-top:4rem;
+    margin-bottom:3rem;
+`
+
+
+
 export const MyLayoversCard = styled.div`
     display:flex;
     flex-direction: column;
@@ -39,5 +51,3 @@ export const LayoversTicketSubitem = styled.p`
         color:#333;
     }
 `
-
-

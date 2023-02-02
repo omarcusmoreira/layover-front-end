@@ -1,5 +1,6 @@
 import { Card, CardContent, Grid, Typography } from "@mui/material";
 import {
+  MyLayoversCards,
   MyLayoversCard,
   LayoversLabel,
   LayoversTicket,
@@ -21,7 +22,7 @@ interface LayoversProps {
 
 export const Layovers = ({ layovers }: LayoversProps) => {
   return (
-    <>
+    <MyLayoversCards>
       {layovers.map((layover) => (
 
         <MyLayoversCard>
@@ -41,6 +42,6 @@ export const Layovers = ({ layovers }: LayoversProps) => {
           <LayoversTicketSubitem><span>Checkin:</span>{layover.checkin_status}</LayoversTicketSubitem>
         </MyLayoversCard>
       ))}
-    </>
+    </MyLayoversCards>
   );
 };

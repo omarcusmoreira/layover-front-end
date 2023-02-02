@@ -30,16 +30,10 @@ export const MyLayoversPageTitle = styled.h2`
     line-height: 56px;
 `
 
-export const MyLayoversCards = styled.div`
-    display:grid;
+export const MyLayoversTabs = styled.div`
     width:100%;
-    grid-template-columns: repeat(auto-fill, minmax(268px, 1fr));
-    grid-column-gap:2rem;
-    grid-row-gap:2rem;
-    margin-top:4rem;
-    margin-bottom:3rem;
-`
 
+`
 export const ActionsButtonsWrap = styled.div`
     display:flex;
     max-width:75rem;

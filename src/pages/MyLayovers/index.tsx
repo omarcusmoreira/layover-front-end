@@ -8,7 +8,7 @@ import {
   MyLayoversPageContentBackGround,
   MyLayoversPageContent,
   MyLayoversPageTitle,
-  MyLayoversCards,
+  MyLayoversTabs,
   ActionsButtonsWrap,
 } from "./styles";
 
@@ -104,13 +104,13 @@ export const MyLayovers = () => {
             />
 
           </Tabs>
-          <MyLayoversCards>
+          <MyLayoversTabs> 
             {activeTab === "MeusLayovers" ? (
               <Layovers layovers={layoverMocks} />
             ) : (
               <FlightSearch />
             )}
-          </MyLayoversCards>
+          </MyLayoversTabs>
         </MyLayoversPageContent>
 
       </MyLayoversPageContentBackGround>
