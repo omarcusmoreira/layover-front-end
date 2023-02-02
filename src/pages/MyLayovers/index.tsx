@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Tabs, Tab, Button } from "@mui/material";
 import { Layovers } from "./components/Layovers";
+import { FlightSearch } from "./components/FlightSearch";
 
 import {
   MyLayoversPage,
@@ -107,7 +108,7 @@ export const MyLayovers = () => {
             {activeTab === "MeusLayovers" ? (
               <Layovers layovers={layoverMocks} />
             ) : (
-              <SearchFlight />
+              <FlightSearch />
             )}
           </MyLayoversCards>
         </MyLayoversPageContent>
