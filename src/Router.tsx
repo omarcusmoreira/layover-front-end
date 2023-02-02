@@ -27,7 +27,7 @@ export function Router() {
         <Route path="/login" element={<Login />} />
         <Route path="/register/user" element={<RegisterUser />} />
         <Route path="/register/hotel" element={<RegisterHotel />} />
-        <Route element={<PrivateRoute />}>
+        {/* <Route element={<PrivateRoute />}> */}
           <Route path="/" element={<Home />} />
           <Route path="/auction" element={<Auction />} />
           <Route path="/auction-result" element={<AuctionResult />} />
@@ -46,7 +46,7 @@ export function Router() {
             path="/register-hotel/accommodations"
             element={<HotelsAccommodations />}
           />
-        </Route>
+        {/* </Route> */}
       </Route>
     </Routes>
   );
