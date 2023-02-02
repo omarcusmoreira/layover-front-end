@@ -62,7 +62,7 @@ export const MyLayovers = () => {
           <Tabs
             value={activeTab}
             onChange={(e: any, newValue: any) => setActiveTab(newValue)}
-            sx={{ marginTop: "-2rem" }}
+            sx={{ marginTop: "-4rem" }}
           >
 
             <Tab value="MeusLayovers" label="Meus Layovers"
@@ -74,7 +74,7 @@ export const MyLayovers = () => {
                 lineHeight: "29px",
                 textTransform: "capitalize",
                 fontWeight: "600",
-                borderRadius: "1rem",
+                borderRadius: "1rem 1rem 0 0",
                 backgroundColor: "#e8e3e3",
                 boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
 
@@ -93,7 +93,7 @@ export const MyLayovers = () => {
                 lineHeight: "29px",
                 textTransform: "capitalize",
                 fontWeight: "600",
-                borderRadius: "1rem",
+                borderRadius: "1rem 1rem 0 0",
                 backgroundColor: "#e8e3e3",
                 boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                 '&:hover': {

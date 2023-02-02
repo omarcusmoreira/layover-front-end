@@ -4,14 +4,14 @@ export const MyLayoversPage = styled.div`
     display:flex;
     flex-direction:column;
     width:100%;
-    margin-top:10rem;
+    margin-top:9rem;
 `
 
 export const MyLayoversPageContentBackGround = styled.div`
     display:flex;
     flex-direction: column;
     width:100%;
-    margin-top:4rem;
+    margin-top:6rem;
     background-color: #4c5879;
     padding:0 1rem;
 `
