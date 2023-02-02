@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Tabs, Tab, Grid, Card, CardContent, Typography } from "@mui/material";
 import { Layovers } from "./components/Layovers";
+import { FlightSearch } from "./components/FlightSearch";
 
 
 const layoverMocks = [
@@ -58,7 +59,7 @@ export const MyLayovers = () => {
         {activeTab === "MeusLayovers" ? (
           <Layovers layovers={layoverMocks}/>
         ) : (
-          <SearchFlight />
+          <FlightSearch />
         )}
       </div>
     </div>
