@@ -1,0 +1,30 @@
+.indicator {
+    background: none;
+    border: none;
+}
+
+.indicator > button {
+    width: .7vh;
+    height: .7vh;
+
+    border-radius: 50%;
+    border: .1px solid #000;
+    background: none;
+}
+
+.indicator > button:focus {
+    background-color: #E30B22;
+    border: none;
+}
+
+.indicator > button:hover {
+    cursor: pointer;
+}
+
+
+@media (min-width:1050px) {
+    .indicator > button {
+        width: 1vh;
+        height: 1vh;
+    }
+}

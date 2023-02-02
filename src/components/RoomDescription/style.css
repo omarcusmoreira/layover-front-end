@@ -1,0 +1,35 @@
+.room-infos-item-container {
+    display: flex;
+    align-items: center;
+
+    padding: .5rem;
+    border-radius: 1.2rem;
+    text-align: initial;
+    color: #021442;
+}
+
+.room-infos-item {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    width: 7rem;
+}
+
+.room-infos-item-container button {
+    border-radius: 1.2rem;
+    background-color: #E30B22;
+    color: #fff;
+    height: 2rem;
+}
+
+@media (min-width:1050px) {
+    .room-infos-item-container {
+        width: 17rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .room-infos-item  {
+        width: 100%;
+    }
+}

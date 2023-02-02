@@ -1,0 +1,6 @@
+.loading-backdrop {
+    z-index: 9999;
+    color: #fefefe;
+    background-color: #000000DD!important;
+    text-transform: uppercase;
+}

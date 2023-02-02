@@ -1,0 +1,45 @@
+.auction-hotel-item-container {
+    display: flex;
+    justify-content: space-between;
+    height: 12vh;
+    background-color: #fff;
+    padding: 1rem;
+    align-items: center;
+    color: #021442;
+}
+
+.auction-hotel-item-prices h2{
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.auction-hotel-infos-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.auction-hotel-infos-price h4 {
+    font-weight: 400;
+}
+
+.auction-hotel-item-see-more span {
+    color: #021442;
+    font-weight: 400;
+    font-size: .7rem;
+}
+
+@media (min-width:1050px) {
+    .auction-hotel-item-prices {
+        width: 30%;
+    }
+
+    .auction-hotel-infos-price p {
+        font-weight: 500;
+        font-size: 1rem;
+    }
+
+    .auction-hotel-item-see-more span {
+        font-size: .8rem;
+    }
+}

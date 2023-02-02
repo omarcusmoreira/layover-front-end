@@ -1,0 +1,168 @@
+.desktop-image-flight-cancel {
+    display: none;
+}
+
+.flight-cancel-container {
+    min-height: 89.5vh;
+    display: flex;
+    background-color: rgba(227, 11, 34, 0.15);
+
+}
+
+.flight-cancel-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+.flight-cancel-form-text {
+    width: 100%;
+    height: 20%;
+
+    display: flex;
+    align-items: center;
+
+    padding: 1rem;
+
+    border-bottom: 1px solid #cecece;
+
+    box-shadow: 0.627061px 0.627061px 1.56765px rgba(0, 0, 0, 0.15);
+    
+    background-color: #fff;
+    padding-inline: 1rem;
+
+}
+
+.flight-cancel-form-text p {
+    color: #021442;
+    font-weight: 600;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.search-flight-radio-buttons-group {
+    margin-top: 2.5rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: .5rem;
+}
+
+.flight-cancel-alternative {
+    width: 90vw;
+    margin: 0 !important;
+    margin-inline: auto;
+
+    border: 1px solid #021442;
+    border-radius: .5rem;
+    padding: .25rem;
+
+    box-shadow: 1px 3px 8px 2px rgba(0, 0, 0, 0.25);
+    color: #021442;
+}
+
+.flight-cancel-alternative-checked {
+    width: 90vw;
+    margin: 0 !important;
+    margin-inline: auto;
+
+    border: 1px solid #021442;
+    border-radius: .5rem;
+    padding: .25rem;
+
+    background-color: #ED8490;
+
+    box-shadow: 1px 3px 8px 2px rgba(0, 0, 0, 0.25);
+    color: #021442;
+}
+
+.flight-cancel-alternative-checked span,
+.flight-cancel-alternative span {
+    color: #021442;
+}
+
+.flight-cancel-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10%;
+    background-color: #fff;
+    height: 8%;
+}
+
+.flight-cancel-footer button {
+    background-color: #021442;
+    text-transform: uppercase;
+    color: #fff;
+    border-radius: 1.5rem;
+    padding: .5rem;
+    font-size: .9rem;
+    width: 30%;
+}
+
+
+
+@media (min-width:980px) {
+    .flight-cancel-form-text {
+        background: none;
+        box-shadow: none;
+        border: none;
+    }
+
+    .flight-cancel-container {
+        width: 80vw;
+        height: 89.5vh;
+    }
+
+    .flight-cancel-form {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+
+    .flight-cancel-form-text p {
+        font-size: 1.75rem;
+        text-align: center;
+        width: 100%;
+    }
+
+    .flight-cancel-form-text img {
+        display: none;
+    }
+
+    .desktop-image-flight-cancel {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+        align-items: center;
+    }
+
+    .desktop-image-flight-cancel img {
+       min-width: 465px;
+    }
+
+    .flight-cancel-form-container {
+        display: flex;
+        justify-content: center;
+        width: 94% !important;
+        margin-bottom:4.5%;
+    }
+
+    .flight-cancel-content {
+        width: 100%;
+    }
+    
+    .flight-cancel-alternative,
+    .flight-cancel-alternative-checked {
+        width:100%;
+    }
+
+    .flight-cancel-content {
+        width: 100%;
+    }
+}

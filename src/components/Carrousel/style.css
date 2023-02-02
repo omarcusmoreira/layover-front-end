@@ -1,0 +1,26 @@
+.carrousel {
+    width: 90%;
+    margin-inline: auto;
+    overflow: auto;
+}
+
+.css-ohwg9z {
+    display: block;
+    overflow: visible;
+}
+
+.css-1abc02a {
+    width: 34%;
+}
+
+@media (min-width:1050px) {
+    
+    .css-ohwg9z {
+        display: block;
+    }
+
+    .carrousel {
+        width: 100%;
+    }
+    
+}   

@@ -1,0 +1,22 @@
+.droparea-container {
+    border: 1px dashed #000;
+    border-radius: .5rem;
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+}
+
+.droparea-container button {
+    background-color: #021442 !important;
+    border-radius: 1.2rem;
+    color: #fff !important;
+}
+
+.droparea-container button:hover {
+    background-color: #010c29 !important;
+}
