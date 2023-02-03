@@ -2,6 +2,12 @@ import React, { useState } from 'react';
 import { Tab, Tabs, Typography } from '@mui/material';
 import { FlightSearch } from './components/FlightSearch';
 
+import {
+  FlightStatusWrap,
+  FlightStatusMenu,
+  FlightStatusTab,
+} from "./styles";
+
 interface TabPanelProps {
   children?: React.ReactNode;
   index: any;
@@ -37,36 +43,43 @@ export const SearchFlight = () => {
   };
 
   return (
-    <div style={{ display: 'flex' }}>
-      <Tabs
-        orientation="vertical"
-        variant="scrollable"
-        value={value}
-        onChange={handleChange}
-        aria-label="Vertical tabs example"
-        style={{ width: '200px', height: '100%' }}
-      >
-        <Tab label="Localizar Voo" />
-        <Tab label="Informações dos passageiros" />
-        <Tab label="Voucher Alimentação" />
-        <Tab label="Voucher Transporte" />
-        <Tab label="Hotel" />
-      </Tabs>
-      <TabPanel value={value} index={0}>
-        <FlightSearch />
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        Informações dos passageiros Content
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        Voucher Alimentação Content
-      </TabPanel>
-      <TabPanel value={value} index={3}>
-        Voucher Transporte Content
-      </TabPanel>
-      <TabPanel value={value} index={4}>
-        Hotel Content
-      </TabPanel>
-    </div>
+    <FlightStatusWrap >
+      <FlightStatusMenu>
+        <Tabs
+          orientation="vertical"
+          variant="scrollable"
+          value={value}
+          onChange={handleChange}
+          aria-label="Vertical tabs example"
+          style={{ width: '200px', height: '100%', textAlign:"left" }}
+        >
+          <Tab label="Localizar Voo" 
+          />
+          <Tab label="Informações dos passageiros" 
+          TabIndicatorProps={{ style: { background: "red" } }}
+          />
+          <Tab label="Voucher Alimentação" />
+          <Tab label="Voucher Transporte" />
+          <Tab label="Hotel" />
+        </Tabs>
+      </FlightStatusMenu>
+        <FlightStatusTab>
+          <TabPanel value={value} index={0} >
+            <FlightSearch />
+          </TabPanel>
+          <TabPanel value={value} index={1}>
+            Informações dos passageiros Content
+          </TabPanel>
+          <TabPanel value={value} index={2}>
+            Voucher Alimentação Content
+          </TabPanel>
+          <TabPanel value={value} index={3}>
+            Voucher Transporte Content
+          </TabPanel>
+          <TabPanel value={value} index={4}>
+            Hotel Content
+          </TabPanel>
+        </FlightStatusTab>
+    </FlightStatusWrap >
   );
 };

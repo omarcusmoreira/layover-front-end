@@ -1,4 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
+import { InputText } from "../../../../components/common/inputText";
+import { InputSelect } from "../../../../components/common/inputSelect";
+import { InputDate } from "../../../../components/common/inputDate";
+
 import {
   FormControl,
   InputLabel,
@@ -8,61 +12,73 @@ import {
   FormControlLabel,
   Checkbox,
   Button,
-  Box,
 } from '@mui/material';
 
 import {
   FlightWrap,
-  FlightContent,
   FlightWrapTitle,
   FlightWrapSubTitle,
+  FlightInputFieldsWrap,
+  LayoverAlone,
+  LayoverAloneTitle,
+  LayoverAloneOptions,
 } from "./styles";
 
-
 export const FlightSearch = () => {
+  const [flightNumber, setFlightNumber] = useState("");
+  const [messageFlightNumber, setMessageFlightNumber] = useState("");
+  const [flightDate, setFlightDate] = useState("");
+  const [searchFlightFor, setSearchFlightFor] = useState(" ");
+  
   return (
     <FlightWrap>
-      <FlightContent>
         <FlightWrapTitle style={{ textAlign: 'left' }}>Status de voo</FlightWrapTitle>
         <FlightWrapSubTitle style={{ textAlign: 'left' }}>
           Preencha os dados abaixo para localizar o voo
         </FlightWrapSubTitle>
-      <Box display="flex" justifyContent="center" mt={3} mb={3}>
-        <FormControl style={{ width: '50%' }}>
-          <InputLabel id="search-by-label">Buscar por</InputLabel>
-          <Select labelId="search-by-label" style={{ width: '100%' }}>
-            <MenuItem value={1}>Opção 1</MenuItem>
-            <MenuItem value={2}>Opção 2</MenuItem>
-            <MenuItem value={3}>Opção 3</MenuItem>
-          </Select>
-        </FormControl>
-        <TextField
-          style={{ width: '50%' }}
-          id="flight-number"
-          label="Digite o número do voo"
-          variant="outlined"
-        />
-        <TextField
-          style={{ width: '50%' }}
-          id="flight-date"
-          label="Data do voo"
-          type="date"
-          variant="outlined"
-        />
-      </Box>
-      <Box display="flex" flexDirection="row" mt={3} mb={3}>
-        <span>Layover sozinho?</span>
-        <FormControlLabel
-          control={<Checkbox name="yes" />}
-          label="Sim"
-        />
-        <FormControlLabel control={<Checkbox name="no" />} label="Não" />
-      </Box>
-      <Box display="flex" justifyContent="center" mt={3} mb={3}>
-        <Button variant="contained">Voltar</Button>
-        <Button variant="contained">Avançar</Button>
-      </Box>
-      </FlightContent>
+        <FlightInputFieldsWrap>
+          <div>
+            <InputText
+              callBacks={(e) => setFlightNumber(e.target.value)}
+              value={flightNumber}
+              label="Número do voo"
+              placeholder="(Digite o número do voo)"
+              warningMns={messageFlightNumber}
+            /> 
+          </div>
+          <div>
+            <InputSelect callBacks={(e) => setSearchFlightFor(e)} value={searchFlightFor}>
+                <MenuItem value={" "}>Buscar por</MenuItem>
+                <MenuItem value={1}>Opção 1</MenuItem>
+                <MenuItem value={2}>Opção 2</MenuItem>
+                <MenuItem value={3}>Opção 3</MenuItem>
+            </InputSelect>
+          </div>
+          <div>
+            <InputDate
+              callBacks={(e) => setFlightDate(e.target.value)}
+              value={flightDate}
+              label="Data do voo"
+              placeholder="(DD/MM/AAAA)"
+            />
+          </div>
+        </FlightInputFieldsWrap>
+      <LayoverAlone>
+        <LayoverAloneTitle>Layover sozinho?</LayoverAloneTitle>
+        <LayoverAloneOptions>
+          <FormControlLabel
+            control={<Checkbox name="yes" />}
+            label="Sim"
+            labelPlacement="bottom"
+            sx={{ '& .MuiSvgIcon-root': { fontSize: 38 } }}
+          />
+          <FormControlLabel 
+          control={<Checkbox name="no" />} 
+          label="Não" 
+          labelPlacement="bottom"
+          sx={{ '& .MuiSvgIcon-root': { fontSize: 38 } }}/>
+        </LayoverAloneOptions>
+      </LayoverAlone>
     </FlightWrap>
   );
 };

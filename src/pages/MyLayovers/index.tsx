@@ -4,7 +4,7 @@ import { Layovers } from "./components/Layovers";
 import { SearchFlight } from '../SearchFlight'
 
 import {
-  MyLayoversPage,
+  MyLayoversPage, 
   MyLayoversPageContentBackGround,
   MyLayoversPageContent,
   MyLayoversPageTitle,
@@ -71,7 +71,7 @@ export const MyLayovers = () => {
                 textTransform: "capitalize",
                 fontWeight: "600",
                 borderRadius: "1rem 1rem 0 0",
-                backgroundColor: "#e8e3e3",
+                backgroundColor: "#e7f8f9",
                 boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
 
                 '&:hover': {
@@ -90,7 +90,7 @@ export const MyLayovers = () => {
                 textTransform: "capitalize",
                 fontWeight: "600",
                 borderRadius: "1rem 1rem 0 0",
-                backgroundColor: "#e8e3e3",
+                backgroundColor: "#e7f8f9",
                 boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                 '&:hover': {
                   color: "#000",

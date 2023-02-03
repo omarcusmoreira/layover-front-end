@@ -14,7 +14,7 @@ export function InputSelect({
   children,
   callBacks,
   value,
-  height = "52px",
+  height = "56px",
 }: InputSelectProps) {
 
   const stylesInput = {
@@ -39,9 +39,7 @@ export function InputSelect({
         SelectDisplayProps={{
           style: stylesInput,
         }}
-        // InputLabelProps={{
-        //   shrink: false,
-        // }}
+
         disableUnderline
       >
         {children}
