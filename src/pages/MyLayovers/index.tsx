@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Tabs, Tab, Button } from "@mui/material";
 import { Layovers } from "./components/Layovers";
-import { FlightSearch } from "./components/FlightSearch";
+import { SearchFlight } from '../SearchFlight'
 
 import {
   MyLayoversPage,
@@ -44,10 +44,6 @@ const layoverMocks = [
     checkin_status: "completado",
   },
 ];
-
-const SearchFlight = () => {
-  return <h1>Localizar Voo Component</h1>;
-};
 
 export const MyLayovers = () => {
   const [activeTab, setActiveTab] = useState("MeusLayovers");
@@ -108,7 +104,7 @@ export const MyLayovers = () => {
             {activeTab === "MeusLayovers" ? (
               <Layovers layovers={layoverMocks} />
             ) : (
-              <FlightSearch />
+              <SearchFlight />
             )}
           </MyLayoversTabs>
         </MyLayoversPageContent>
@@ -116,12 +112,12 @@ export const MyLayovers = () => {
       </MyLayoversPageContentBackGround>
       <ActionsButtonsWrap>
         <Button
-          onClick={() => { navigate('#') }}
+          onClick={() => {}}
           sx={{ color: "#fff", fontSize: "19px", width: "200px", fontWeight: "300", textTransform: "capitalize", padding: "0 52px", borderRadius: "19px", backgroundColor: "#021442", height: "38px", boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)", '&:hover': { color: '#000', backgroundColor: '#fff' } }}>
 
           Voltar</Button>
         <Button
-          onClick={() => { navigate('#') }}
+          onClick={() => {}}
           sx={{ color: "#fff", fontSize: "19px", width: "200px", fontWeight: "300", textTransform: "capitalize", padding: "0 52px", borderRadius: "19px", backgroundColor: "#021442", height: "38px", boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)", '&:hover': { color: '#000', backgroundColor: '#fff' } }}>
           Avançar</Button>
       </ActionsButtonsWrap>

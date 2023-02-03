@@ -21,7 +21,6 @@ export function Login() {
             userType="user"
           />
         </UserContainer>
-
         <CompanyContainer>
           <LoginForm
             handleClose={handleClose}
