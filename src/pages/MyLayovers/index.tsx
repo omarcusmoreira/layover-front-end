@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Tabs, Tab, Grid, Card, CardContent, Typography } from "@mui/material";
 import { Layovers } from "./components/Layovers";
 import { FlightSearch } from "./components/FlightSearch";
+import { SearchFlight } from '../SearchFlight'
 
 
 const layoverMocks = [
@@ -35,10 +36,6 @@ const layoverMocks = [
   },
 ];
 
-const SearchFlight = () => {
-  return <h1>Localizar Voo Component</h1>;
-};
-
 export const MyLayovers = () => {
   const [activeTab, setActiveTab] = useState("MeusLayovers");
 
@@ -59,7 +56,7 @@ export const MyLayovers = () => {
         {activeTab === "MeusLayovers" ? (
           <Layovers layovers={layoverMocks}/>
         ) : (
-          <FlightSearch />
+          <SearchFlight />
         )}
       </div>
     </div>

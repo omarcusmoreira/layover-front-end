@@ -19,6 +19,7 @@ import { Travel } from "./pages/Travel";
 import { WarningLayover } from "./pages/WarningLayover";
 import { MyFlight } from "./pages/MyFlight"
 import { PrivateRoute } from "./PrivateRoute";
+import { SearchFlight } from "./pages/SearchFlight";
 
 export function Router() {
   return (
@@ -42,6 +43,7 @@ export function Router() {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/my-flights" element={<MyFlight />} />
           <Route path="/my-layovers" element={<MyLayovers />} />
+          <Route path="/search-flight" element={<SearchFlight />} />
           <Route
             path="/register-hotel/accommodations"
             element={<HotelsAccommodations />}
